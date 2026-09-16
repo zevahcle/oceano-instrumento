@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>El océano o el instrumento</title>
+<meta name="author" content="Édgar Chávez">
+<meta name="description" content="Ensayo sobre instrumentos, artefactos y aprendizaje: por qué la defensa contra un error plausible es un catálogo que se construye a mano, y por qué es lo primero que la automatización hace desaparecer.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="El océano o el instrumento">
+<meta property="og:description" content="Ensayo sobre instrumentos, artefactos y aprendizaje: por qué la defensa contra un error plausible es un catálogo que se construye a mano, y por qué es lo primero que la automatización hace desaparecer.">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --paper:#F3F4F1; --paper-2:#EAECE7;
+    --ink:#191D1B; --ink-2:#3E4643; --ink-3:#6B736E;
+    --rule:#CFD4CC; --rule-soft:#DDE1D9;
+    --accent:#2C5D57; --accent-soft:#5A8B84;
+    --cue:#A65C15; --cue-wash:rgba(196,132,44,.12); --cue-rule:#C98A3E;
+    color-scheme:light;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --paper:#141816; --paper-2:#1B211E;
+      --ink:#E3E7E2; --ink-2:#B3BBB5; --ink-3:#828C86;
+      --rule:#2E3733; --rule-soft:#242C28;
+      --accent:#79B8AE; --accent-soft:#4E8079;
+      --cue:#E0A75E; --cue-wash:rgba(224,167,94,.10); --cue-rule:#A9762F;
+      color-scheme:dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#141816; --paper-2:#1B211E;
+    --ink:#E3E7E2; --ink-2:#B3BBB5; --ink-3:#828C86;
+    --rule:#2E3733; --rule-soft:#242C28;
+    --accent:#79B8AE; --accent-soft:#4E8079;
+    --cue:#E0A75E; --cue-wash:rgba(224,167,94,.10); --cue-rule:#A9762F;
+    color-scheme:dark;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:Spectral,Georgia,"Times New Roman",serif;
+    font-size:18px;line-height:1.68;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:38rem;margin:0 auto;padding:0 1.4rem 7rem}
+
+  h1,h2,.eyebrow,.num,.cap,.lim b,nav.toc{font-family:"Barlow Condensed","Helvetica Neue",Arial,sans-serif}
+
+  header.mast{padding:4.5rem 0 2rem;border-bottom:2px solid var(--ink);margin-bottom:3rem}
+  .eyebrow{
+    font-size:.78rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3);
+    display:block;margin-bottom:1rem;
+  }
+  h1{
+    font-size:clamp(2.6rem,9vw,4.2rem);font-weight:700;line-height:.95;
+    letter-spacing:-.015em;margin:0 0 1.4rem;text-wrap:balance;
+  }
+  .firma{
+    font-family:"Barlow Condensed","Helvetica Neue",Arial,sans-serif;
+    font-size:1.3rem;font-weight:600;letter-spacing:.05em;
+    color:var(--ink);margin:0 0 .3rem;
+  }
+  .adscripcion{
+    font-size:.95rem;font-weight:300;line-height:1.35;
+    color:var(--ink-2);margin:0 0 .5rem;max-width:26rem;
+  }
+  .lugar{
+    font-family:"Barlow Condensed","Helvetica Neue",Arial,sans-serif;
+    font-size:.85rem;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--ink-3);margin:0;
+  }
+
+  nav.toc{
+    background:var(--paper-2);border:1px solid var(--rule);
+    padding:1.1rem 1.3rem;margin:0 0 3.5rem;font-size:.95rem;
+  }
+  nav.toc ol{list-style:none;margin:.5rem 0 0;padding:0;
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:.1rem 1.5rem}
+  nav.toc li{display:flex;gap:.6rem;align-items:baseline}
+  nav.toc .n{font-family:"IBM Plex Mono",monospace;font-size:.7rem;color:var(--cue);min-width:1.9rem}
+  nav.toc a{color:var(--ink-2);text-decoration:none;border-bottom:1px solid transparent}
+  nav.toc a:hover{color:var(--accent);border-bottom-color:var(--accent-soft)}
+
+  section{margin:0 0 3.4rem;scroll-margin-top:1.5rem}
+  h2{
+    font-size:1.75rem;font-weight:600;line-height:1.15;margin:3.8rem 0 1.3rem;
+    text-wrap:balance;display:flex;gap:.9rem;align-items:baseline;
+  }
+  h2 .num{
+    font-size:.85rem;font-weight:700;letter-spacing:.14em;color:var(--cue);
+    flex:0 0 auto;padding-top:.35rem;
+  }
+  p{margin:0 0 1.15rem}
+  strong{font-weight:600}
+  a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-soft)}
+  a:hover{background:var(--cue-wash);border-bottom-color:var(--cue)}
+  a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+  .lede:first-letter{
+    float:left;font-size:3.4rem;line-height:.82;font-weight:600;
+    color:var(--cue);margin:.18rem .5rem 0 0;
+  }
+
+  blockquote{
+    margin:2.2rem 0;padding:0 0 0 1.3rem;border-left:3px solid var(--cue-rule);
+    font-size:1.24rem;line-height:1.38;color:var(--ink);
+  }
+  blockquote p{margin:0 0 .6rem}
+  blockquote p:last-child{margin:0}
+  blockquote cite{display:block;font-style:normal;font-size:.85rem;letter-spacing:.06em;
+    text-transform:uppercase;color:var(--ink-3);margin-top:.7rem;font-family:"Barlow Condensed",sans-serif}
+
+  .lim{
+    border-left:2px solid var(--cue-rule);padding-left:.75rem;
+    font-size:.86rem;line-height:1.45;color:var(--ink-3);
+    margin:.2rem 0 1.3rem;font-style:italic;
+  }
+  .lim b{font-style:normal;font-weight:600;color:var(--cue);letter-spacing:.1em;
+    text-transform:uppercase;font-size:.72rem;display:block;margin-bottom:.15rem}
+  @media (min-width:1180px){
+    .lim{float:right;clear:right;width:13.5rem;margin:.35rem -15.5rem 1rem 0}
+  }
+
+  .fig{font-family:"IBM Plex Mono",monospace;font-size:.93em;font-variant-numeric:tabular-nums;font-weight:500}
+
+  hr{border:0;border-top:1px solid var(--rule);margin:3rem 0}
+
+  .ref{padding:.75rem 0;border-bottom:1px solid var(--rule-soft);font-size:.95rem}
+  .ref b{display:block;font-weight:600;margin-bottom:.1rem}
+  .ref span{color:var(--ink-3);font-size:.9rem}
+  h3.reftit{font-family:"Barlow Condensed",sans-serif;font-size:1rem;font-weight:600;
+    letter-spacing:.07em;text-transform:uppercase;color:var(--ink-2);margin:2.2rem 0 .5rem}
+
+  footer{border-top:2px solid var(--ink);margin-top:4rem;padding-top:1.3rem;color:var(--ink-3);font-size:.93rem}
+
+  @media (max-width:640px){ body{font-size:17px} .wrap{padding:0 1.1rem 5rem} }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+<style>body{margin:0}</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="mast">
+  <span class="eyebrow">Ensayo</span>
+  <h1>El océano o el instrumento</h1>
+  <p class="firma">Édgar Chávez</p>
+  <p class="adscripcion">Centro de Investigación Científica y de Educación Superior de Ensenada (CICESE)</p>
+  <p class="lugar">Septiembre de 2026</p>
+</header>
+
+<nav class="toc">
+  <span class="eyebrow" style="margin:0">Contenido</span>
+  <ol>
+    <li><span class="n">I</span><a href="#barco">El barco</a></li>
+    <li><span class="n">II</span><a href="#artefacto">El artefacto</a></li>
+    <li><span class="n">III</span><a href="#catalogo">El catálogo</a></li>
+    <li><span class="n">IV</span><a href="#lenguaje">Un instrumento hecho de lenguaje</a></li>
+    <li><span class="n">V</span><a href="#medido">Lo que se ha medido</a></li>
+    <li><span class="n">VI</span><a href="#delega">Por qué se delega</a></li>
+    <li><span class="n">VII</span><a href="#escrito">Lo que no está escrito</a></li>
+    <li><span class="n">VIII</span><a href="#donde">Saber dónde estamos</a></li>
+    <li><span class="n">§</span><a href="#fuentes">Fuentes</a></li>
+  </ol>
+</nav>
+
+<!-- ═══════ I ═══════ -->
+<section id="barco">
+  <h2><span class="num">I</span>El barco</h2>
+
+  <p class="lede">El diez de junio de 1995, el crucero <em>Royal Majesty</em> zarpó de Bermudas rumbo a Boston con mil quinientas nueve personas a bordo. Cincuenta y dos minutos después de soltar amarras, el cable de la antena del receptor de GPS se aflojó. El aparato dejó de medir la posición y empezó a estimarla, que es una manera técnica de decir que empezó a inventarla a partir del rumbo y la velocidad.</p>
+
+  <p>Conviene detenerse en lo que ocurrió entonces, porque casi todas las versiones de esta historia lo cuentan mal. El receptor sí avisó. Puso en su pantalla las letras <span class="fig">SOL</span> y <span class="fig">DR</span>, emitió un segundo de pitidos y marcó el dato como inválido. Pero estaba instalado en un rincón del puente. La alarma externa nunca se había conectado. Y el piloto automático no estaba programado para leer esa marca. De modo que la consola grande, la que todos miraban, siguió mostrando una posición impecable durante treinta y cuatro horas.</p>
+
+  <p>En esas treinta y cuatro horas aparecieron luces donde no debía haberlas. No apareció una boya que tenía que aparecer. El vigía reportó agua azul y blanca por la proa, que es agua rompiendo sobre un bajo; el oficial de guardia lo escuchó, acusó recibo y no hizo nada. A las veinte cuarenta y seis, dos pesqueros portugueses llamaron por radio y no obtuvieron respuesta. Uno le comentó al otro que quizá nadie en el puente estaba poniendo atención. Hora y media más tarde el barco encalló en un bajo de arena, a diecisiete millas de donde su tripulación creía estar.</p>
+
+  <p>No hubo muertos ni heridos. Hubo siete millones de dólares. Y hubo, todo el viaje, un receptor Loran-C encendido en el mismo puente, dando una posición distinta que nadie comparó con la otra.</p>
+
+  <blockquote>
+    <p>Los oficiales estaban, literalmente, navegando la pantalla en lugar de usar las ayudas a la navegación o la información del vigía.</p>
+    <cite>National Transportation Safety Board</cite>
+  </blockquote>
+
+  <p>La frase del informe es dura y es exacta, pero se queda corta en un punto. Los oficiales no eran negligentes ni novatos. Tenían delante un número que era falso y que se veía idéntico a un número verdadero. No tenían de dónde sospechar, salvo de cosas menores y dispersas, unas luces raras, una boya ausente, un vigía inquieto, ninguna de las cuales pesaba lo suficiente contra una consola que decía con toda claridad dónde estaban.</p>
+</section>
+
+<!-- ═══════ II ═══════ -->
+<section id="artefacto">
+  <h2><span class="num">II</span>El artefacto</h2>
+
+  <p>Ese es el problema que me interesa, y no es nuevo ni exclusivo de la navegación. Un instrumento que falla de manera evidente es un estorbo. Un instrumento que falla de manera plausible es otra cosa: es una trampa, y su peligrosidad crece con su prestigio.</p>
+
+  <p>Hay un ejemplo moderno que me parece perfecto porque es geométrico y no admite discusión. Un dron levanta un terreno volando en malla, con la cámara apuntando hacia abajo. El programa une las fotografías y devuelve un modelo tridimensional con detalle de centímetros. El resultado es precioso, suave, convincente. Y está abombado: aparece un domo que no existe.</p>
+
+  <p>La causa es que el programa debe resolver dos incógnitas a la vez, la forma del terreno y la distorsión del lente, y cuando todas las fotos miran en la misma dirección hay muchas combinaciones de las dos que encajan igual de bien con los datos. El programa elige una. Encaja perfectamente con todas las fotografías. Y es falsa.</p>
+
+  <p>En simulación el domo espurio ronda los veinte centímetros sobre cien metros de terreno. En campo, medido en dos antepaíses glaciares suizos, pasó de treinta. Lo notable no es la magnitud sino la comparación: ese error es un orden de magnitud mayor que la incertidumbre que el propio programa reporta. El sistema se presenta más preciso de lo que es exacto.</p>
+
+  <aside class="lim"><b>El límite</b>Son simulaciones y dos casos de campo, no una estadística de la práctica. Lo bien establecido es el mecanismo geométrico, no la frecuencia con que ocurre.</aside>
+
+  <p>Y no avisa. No hay una barra roja, ni un pitido, ni una marca de dato inválido en un rincón del puente. El error es sistemático y no ruido, de manera que no se cancela promediando ni se descubre mirando la pantalla con más atención. Lo único que lo delata es información que no haya salido del mismo sistema: unos puntos medidos en el suelo, o volver a volar mirando desde otro ángulo.</p>
+
+  <p>Quien trabaja con instrumentos tiene un nombre para esto. Le dice artefacto. Es una de las palabras más útiles que ha producido la ciencia experimental y describe, con una economía admirable, una estructura que aparece en los datos y que no está en el mundo, sino en el aparato con el que se miró el mundo.</p>
+</section>
+
+<!-- ═══════ III ═══════ -->
+<section id="catalogo">
+  <h2><span class="num">III</span>El catálogo</h2>
+
+  <p>En enero de 2009, un sensor de microondas a bordo de un satélite empezó a degradarse. No se apagó. Se fue muriendo despacio, reportando cada día un poco menos de hielo ártico del que había. El error creció desde cero hasta quinientos mil kilómetros cuadrados a mediados de febrero, más o menos la superficie de España, y estuvo alimentando durante seis semanas el mapa diario de hielo de un centro nacional de datos.</p>
+
+  <p>¿Por qué no saltó ninguna alarma automática? El propio centro lo explicó después con una frase que vale la pena guardar: los valores subestimados no estaban fuera de la variabilidad esperada. El dato malo era plausible. Cabía dentro de lo que el sistema consideraba posible, y por eso sobrevivió seis semanas.</p>
+
+  <p>Quienes dieron la alarma fueron lectores. Gente que abrió el mapa una mañana, lo comparó con lo que sabía del Ártico y escribió para avisar que algo no cuadraba.</p>
+
+  <aside class="lim"><b>Dos límites</b>Era el producto de publicación rápida, que sale casi sin revisión; el control de calidad estricto puede tardar un año. Y el episodio no altera las conclusiones de largo plazo sobre el declive del hielo.</aside>
+
+  <p>Ese es el patrón, y se repite en todas partes. El modo de falla peligroso no es el error absurdo, que cualquiera detecta. Es el error verosímil, el que cae dentro de lo esperado. Y quien lo atrapa no es un sistema de verificación sino una persona que tenía en la cabeza un modelo de cómo debería verse un dato bueno.</p>
+
+  <p>Lo interesante es que cada disciplina experimental construye ese modelo por su cuenta y le da una forma propia, hasta el punto de que sus practicantes no siempre reconocen que hablan de lo mismo. El oceanógrafo se pregunta si ese pico de salinidad a doscientos metros es una intrusión o es la celda de conductividad sucia. El geólogo, si ese contacto entre dos unidades es una falla o es depositacional. El sismólogo, si ese arribo limpísimo de las once de la mañana es un sismo o es una voladura de cantera. El geofísico, si esa estructura la puso la Tierra o la puso la regularización que él mismo eligió. El óptico, si ese anillo de más es un modo de orden superior o una reflexión parásita. El microbiólogo, si creció su organismo o es contaminación. El químico de materiales, si esa fase es nueva o es un compuesto conocido que salió desordenado. Y el programador, que cree estar en otro negocio, se pregunta si el código corre o si además es correcto.</p>
+
+  <p>Son la misma pregunta dicha en siete idiomas. Y admite una forma general que me parece la frase más honesta que puede decir alguien que mide cosas: <strong>esto que estoy viendo, ¿es el océano, o es mi instrumento?</strong></p>
+
+  <p>Conviene notar cómo se aprende a hacerla. No se aprende leyendo. Se aprende picando algunos miles de fases sísmicas a mano, hasta que un arribo demasiado limpio produce incomodidad antes de que uno sepa explicar por qué. Refinando difractogramas hasta descubrir que un buen factor de ajuste también se consigue con una estructura falsa. Mirando perfiles crudos antes de procesarlos. Contando organismos al microscopio durante mil horas, hasta que una talla imposible salta sola. El catálogo de artefactos de una disciplina no es una lista publicada en ninguna parte. Es un sedimento, y se deposita despacio.</p>
+</section>
+
+<!-- ═══════ IV ═══════ -->
+<section id="lenguaje">
+  <h2><span class="num">IV</span>Un instrumento hecho de lenguaje</h2>
+
+  <p>Con eso a la mano se puede decir qué es un modelo de lenguaje sin entrar en su maquinaria. Un modelo no busca información: la produce. Está construido para generar la continuación más plausible de un texto. Casi siempre lo más plausible coincide con lo verdadero, y esa coincidencia es la razón de que la herramienta sea tan útil. Pero cuando no coincide, el modelo no se detiene ni avisa. Produce la continuación plausible de todos modos, con la misma fluidez, la misma seguridad y la misma redacción impecable.</p>
+
+  <p>Dicho de otra manera: un sistema que interpola con confianza, internamente consistente, sin barra roja, con un error que no se cancela promediando y que suele quedar dentro de la variabilidad esperada.</p>
+
+  <blockquote><p>Es la descripción exacta de un artefacto. La única novedad es que estos están hechos de lenguaje.</p></blockquote>
+
+  <p>Y aquí aparece lo que vuelve el asunto incómodo, porque la ironía es vieja y está bien documentada. En 1983, estudiando salas de control de plantas químicas y cabinas de avión, Lisanne Bainbridge observó que la automatización produce dos efectos simultáneos y contrarios. Automatizamos porque el operador humano se equivoca, y al automatizar le dejamos al operador exactamente las tareas que no se pudieron automatizar, que son las más difíciles. Y el operador, al no ejercitarlas, las pierde justo en el periodo en que está esperando el día en que harán falta.</p>
+
+  <blockquote>
+    <p>Los sistemas más automatizados, los que casi nunca necesitan que el humano intervenga, son exactamente los que más entrenamiento humano exigen. Porque cuando por fin hace falta la persona, hace falta en su mejor día.</p>
+  </blockquote>
+
+  <p>Aplicado al catálogo de artefactos, el corolario es desagradable. Ese sedimento se deposita picando fases a mano, refinando difractogramas a mano, contando bichos a mano. Y ese trabajo lento y tedioso es precisamente el primero que cualquier herramienta razonable se ofrece a hacer.</p>
+</section>
+
+<!-- ═══════ V ═══════ -->
+<section id="medido">
+  <h2><span class="num">V</span>Lo que se ha medido</h2>
+
+  <p>Hasta aquí es un argumento por mecanismo, y los argumentos por mecanismo son baratos. Vale la pena ver qué se ha medido, y con qué límites.</p>
+
+  <p>El experimento más informativo se hizo en Turquía con cerca de mil estudiantes de bachillerato. Se los asignó al azar a tres condiciones: un chat tipo GPT-4 sin restricciones, el mismo modelo pero rediseñado para dar pistas en vez de respuestas, y un grupo de control sin nada. Durante las sesiones de práctica, el grupo del chat libre rindió un cuarenta y ocho por ciento mejor que el control, y el del tutor con salvaguardas un ciento veintisiete por ciento mejor. Después les quitaron el acceso y les aplicaron un examen. El grupo del chat libre quedó un diecisiete por ciento por debajo de quienes nunca habían tenido nada. El grupo del tutor con pistas quedó igual que el control.</p>
+
+  <aside class="lim"><b>El límite</b>Bachillerato, matemáticas, un solo país y un horizonte corto. No mide efectos a un año.</aside>
+
+  <p>Ese resultado es, me parece, el más importante que tenemos, y no porque muestre daño. Porque muestra que el daño no venía de la herramienta. El mismo modelo, con la instrucción de dar pistas en lugar de respuestas, no lastimó a nadie. La variable causal fue el diseño de la interacción. En la misma dirección apuntan los pocos casos bien diseñados que existen. Un tutor construido a propósito para un curso de física, con andamiaje y pistas graduadas, produjo cerca del doble de aprendizaje que la clase presencial con métodos activos. Y un asistente que le sugería preguntas al tutor humano, no al alumno, mejoró el desempeño de los estudiantes sobre todo cuando el tutor era inexperto.</p>
+
+  <p>La segunda medición que importa no tiene que ver con estudiantes. En cuatro centros de endoscopía de Polonia se introdujo un sistema de detección de pólipos asistida por computadora, y después se midió cómo les iba a los endoscopistas cuando trabajaban sin él. Eran diecinueve médicos con más de dos mil colonoscopías cada uno. Su tasa de detección de adenomas cayó de veintiocho punto cuatro por ciento a veintidós punto cuatro. Una caída relativa de una quinta parte, en expertos, con consecuencias potenciales para pacientes.</p>
+
+  <aside class="lim"><b>El límite</b>Es observacional, no aleatorizado. Puede haber confusores temporales: fatiga, cambios en la casuística, efecto de cohorte.</aside>
+
+  <p>Lo mismo se ha visto lejos de la medicina. Desarrolladores de software con años de experiencia, trabajando en sus propios repositorios, tardaron un diecinueve por ciento más con asistencia de inteligencia artificial que sin ella. Al terminar estimaron que habían ido un veinte por ciento más rápido.</p>
+
+  <p>Esa última cifra merece detenerse. No mide productividad: mide la distancia entre lo que ocurrió y lo que los propios interesados creyeron que ocurría, y son profesionales juzgando su propio oficio. Es la versión moderna de algo que la psicología cognitiva estableció hace cuarenta años. Robert Bjork lo formuló así: el desempeño durante la práctica es un pésimo predictor del aprendizaje, y las condiciones que hacen que hoy todo salga fluido suelen ser las que hacen que mañana no se recuerde nada. La sensación de competencia y la competencia son cosas distintas, y la primera es la única a la que tenemos acceso directo.</p>
+
+  <p>Hay un tercer experimento que a mí me costó digerir. En Colonia, en 2023, veintisiete radiólogos leyeron cincuenta mamografías con la ayuda de un sistema de inteligencia artificial que les sugería, en cada caso, qué tan sospechosa era la imagen. En doce de los cuarenta casos reales la sugerencia era deliberadamente falsa. Con la sugerencia correcta, los radiólogos novatos acertaban ochenta de cada cien; con la falsa, veinte. Era razonable esperar que la experiencia protegiera: los radiólogos veteranos acertaban ochenta y dos con la sugerencia correcta, y cuarenta y cinco con la falsa.</p>
+
+  <p>Lo que ninguno de los veintisiete sabía es que no había ninguna máquina. El sistema era simulado y las sugerencias las habían escrito los investigadores a mano.</p>
+
+  <aside class="lim"><b>El límite, y es serio</b>El estudio no midió el desempeño sin ninguna sugerencia. Al no haber brazo de control no se puede afirmar que perdieran la mitad de su competencia. Lo que sí queda establecido es que la experiencia no los inmunizó.</aside>
+
+  <p>No hubo máquina. Hubo una etiqueta con la forma de una autoridad, y la etiqueta bastó.</p>
+
+  <p>Queda un caso más, y es el que lleva todo esto al terreno de la investigación. En 2018, una revista de primera línea publicó que una red neuronal profunda había aprendido a predecir dónde caen las réplicas de un terremoto grande. Trece mil cuatrocientos cincuenta y un parámetros, y un índice de acierto de cero punto ochenta y cinco en una escala donde medio punto equivale a tirar una moneda. La prensa científica tituló que la inteligencia artificial clavaba las predicciones.</p>
+
+  <p>Un año después, en la misma revista, dos investigadores tomaron los mismos datos y ajustaron una regresión logística con dos números. Obtuvieron cero punto ochenta y cinco. Y cuando sustituyeron el cálculo de esfuerzos por la distancia al plano de ruptura y el deslizamiento del sismo principal, subieron a cero punto ochenta y seis, es decir, mejor que la red.</p>
+
+  <aside class="lim"><b>El límite</b>Existe además una auditoría pública que reporta fuga de datos entre entrenamiento y prueba, pero no está revisada por pares y los autores originales publicaron réplica. La refutación de los dos parámetros sí lo está, y basta por sí sola.</aside>
+
+  <p>La herramienta no falló. El número siempre fue correcto. Lo que nadie hizo, ni los autores ni los revisores ni los periodistas, fue lo más barato de todo el procedimiento: correr primero el modelo tonto, para saber contra qué se estaba comparando. La red no había descubierto física. Había descubierto que conocía el examen.</p>
+
+  <p>Y merece atención quién la desarmó. No fue un detector, ni una auditoría automática, ni un comité. Fue alguien que sabía suficiente sismología como para construir a mano el modelo contra el cual medirla.</p>
+</section>
+
+<!-- ═══════ VI ═══════ -->
+<section id="delega">
+  <h2><span class="num">VI</span>Por qué se delega</h2>
+
+  <p>Es tentador leer todo lo anterior como una queja sobre la disciplina ajena, y sería un error. La delegación no es un defecto de carácter. Es una respuesta previsible a cómo están construidas las tareas.</p>
+
+  <p>Conozco una escena que lo explica mejor que cualquier argumento. Un padre está preocupado porque su hijo no logra concentrarse en las tareas de la escuela: veinte minutos y ya se levantó tres veces. El mismo niño, sin embargo, lleva cuatro horas frente a un videojuego sin moverse. Entonces el padre hace algo que casi ningún padre hace, que es sentarse a jugarlo. Y se aburre a los cinco minutos.</p>
+
+  <p>El descubrimiento no es el que él esperaba. La capacidad de concentración del niño estaba intacta. Lo que no estaba era el interés. Y conviene mirar con cuidado qué es ese videojuego al que el niño sí le entrega cuatro horas, porque es, de manera muy precisa, una máquina de fabricar dificultad. Está diseñado para que el jugador falle. El niño muere cuarenta veces contra el mismo enemigo y vuelve. Nadie ha abandonado nunca un videojuego por ser demasiado difícil; se abandonan por ser demasiado fáciles. Y cualquiera que haya usado un truco de vidas infinitas sabe qué pasa con el juego después: se acaba en tres días.</p>
+
+  <p>La lección incomoda a quien da clase, y me incluyo. Una tarea que se le pudo haber encargado a cualquiera, cuya respuesta está al final del libro y cuya única consecuencia es un número en una lista, no es de nadie. Y lo que no es de nadie se delega sin remordimiento. No construimos un problema: construimos un trámite, y los trámites se automatizan. Para eso existen las máquinas.</p>
+
+  <p>Hay un caso reciente que conviene mencionar precisamente porque no es el problema del que hablo. En 2026 la Universidad Nacional Autónoma de México aplicó por primera vez en línea su examen de admisión. En Medicina, nueve personas lo contestaron perfecto; en 2021 lo había logrado ninguna. Casi el treinta por ciento rebasó los cien aciertos, contra el nueve por ciento del año anterior. Hubo denuncia penal, dos operadores de una academia vinculados a proceso por responder el examen de nueve aspirantes, y más de cincuenta y ocho mil personas repitiendo la prueba en papel.</p>
+
+  <p>Eso es fraude, es ilegal, es detectable y hay jueces ocupándose. Lo que me preocupa es lo otro, que es mucho más común y no es delito: el estudiante que entrega su trabajo con ayuda de un modelo, lo entrega bien, obtiene buena calificación y no aprendió nada. Ningún sistema detecta eso. Y los que se venden para detectar la otra cosa tampoco funcionan: en el estudio más citado, los detectores de texto generado clasificaron casi perfecto los ensayos de angloparlantes nativos, y marcaron como artificiales más de la mitad de los escritos por no nativos, con una tasa media de falsos positivos del sesenta y uno por ciento.</p>
+
+  <aside class="lim"><b>El límite</b>Es de 2023 y los detectores han cambiado desde entonces. Lo que no cambia es la asimetría de costos: un falso positivo es una acusación de deshonestidad contra una persona inocente.</aside>
+
+  <p>Quienes escribimos nuestra ciencia en un idioma que no es el nuestro deberíamos leer esa cifra con cuidado. El detector no acusa al tramposo. Nos acusa a nosotros.</p>
+
+  <p>Queda una pérdida más silenciosa, y es la que más me inquieta. Un modelo es extraordinariamente bueno dando respuestas, y una escuela no existe para dar respuestas: existe para producir preguntas. Pero una pregunta necesita un intervalo de no saber para formarse. Si cada hueco se llena en cuatro segundos, ese intervalo no llega a existir. Lo que está en riesgo, entonces, no son las respuestas. Es la pregunta.</p>
+</section>
+
+<!-- ═══════ VII ═══════ -->
+<section id="escrito">
+  <h2><span class="num">VII</span>Lo que no está escrito</h2>
+
+  <p>A finales de los años sesenta, en un laboratorio militar de Quebec, alguien construyó un tipo nuevo de láser. El desarrollo estuvo clasificado hasta 1970; cuando se publicaron los detalles, media docena de laboratorios en el mundo se pusieron a replicarlo. El sociólogo Harry Collins los siguió uno por uno y encontró algo que sigue siendo, cincuenta años después, el hallazgo más pertinente de toda esta discusión.</p>
+
+  <blockquote>
+    <p>Ningún científico logró construir un láser que funcionara usando únicamente la información de fuentes publicadas o escritas.</p>
+    <cite>Harry Collins, 1974</cite>
+  </blockquote>
+
+  <p>Ninguno. Todos los que lo consiguieron obtuvieron la pieza que faltaba de un contacto personal, cara a cara, con alguien que ya lo había construido con sus propias manos. Y el detalle decisivo es este: no bastaba con hablar con alguien que supiera del tema. Si el informante era un intermediario, alguien que no lo había construido él mismo, el aprendiz fracasaba.</p>
+
+  <aside class="lim"><b>Una precisión</b>Lo que se publicó fueron detalles breves, no los planos completos. Una objeción razonable es que parte de la información se retenía por competencia entre laboratorios. El hallazgo resiste igual, porque el intermediario que sí quería ayudar tampoco servía.</aside>
+
+  <p>Medio siglo después existe una máquina que ha leído todo lo publicado. Todo. Y ese láser señala con una precisión brutal qué es exactamente lo que esa máquina no puede entregar: lo que nunca llegó a escribirse, porque nadie supo cómo escribirlo.</p>
+
+  <p>Debo una confesión en este punto, porque sin ella lo anterior sería deshonesto. Durante años, cuando se me ocurría una idea algorítmica y quería probarla, no podía. Necesitaba que alguien escribiera el software, y eso significaba buscar un grupo, casi siempre en otro país, escribir un proyecto, esperar el financiamiento, coordinar husos horarios y esperar otra vez. Meses. A veces años. A veces la idea se moría en el camino. Hace poco tuve una idea de ese tipo y en una tarde, con una de estas herramientas, terminé el experimento.</p>
+
+  <p>Eso es bueno sin matices. Es más ciencia. Son ideas que antes morían por falta de un programador y que ahora se prueban, y es además profundamente democratizador: alguien sin grupo grande, sin presupuesto, en un país que no es el centro del mundo, prueba su idea el martes. Pero conviene mirar qué fue qué. El software era el tramo fácil. La idea, la parte que nadie había hecho antes, sigue siendo el tramo difícil, y ese no se cruza solo.</p>
+
+  <p>Mis amigos de toda la vida son colegas de otros países con los que publiqué. Un artículo no era solamente un artículo: era un pretexto para pasar tres años hablando con alguien. Si el pretexto deja de ser necesario, el amigo tampoco llega.</p>
+
+  <p>Y hay algo menos sentimental y bastante más grave. El colaborador que escribía aquel código también me decía que no. Escribía, a las dos de la mañana y en un correo larguísimo, que mi idea estaba mal y por qué. Un modelo no hace eso. Están entrenados para ser útiles y agradables, y hay evidencia de que cuando el usuario insiste, incluso con timidez, con frecuencia ceden y abandonan la respuesta correcta. Cambiar un coautor que discrepa por un sistema que cede no es una ganancia de productividad. Es desmantelar el control de calidad.</p>
+
+  <aside class="lim"><b>El límite</b>El trabajo es de 2023 y los modelos posteriores han mitigado el fenómeno en distintos grados. Se cita como propiedad estructural del entrenamiento por preferencias humanas, no como defecto de un producto concreto.</aside>
+
+  <p>El colaborador aportaba, además, lo que no se le había pedido. Un modelo entrega lo que se le pide; un colega entrega lo que uno no sabía que había que pedir, y ahí vive buena parte de la sorpresa en la ciencia. A escala de una institución el efecto se acumula: si todos consultan al mismo sistema en lugar de consultarse entre sí, convergen. Ya se midió en un experimento con escritores, donde las ideas venidas de un modelo produjeron textos individualmente mejores y colectivamente más parecidos entre sí. Cada quien mejora y el conjunto se estrecha. Un centro de investigación vive de su varianza.</p>
+
+  <p>En Ensenada hay una manera muy concreta de ver esto. El buque oceanográfico que opera el centro tiene capacidad para veinticinco personas: dieciséis científicos, ocho tripulantes y un apoyo de cocina. Nadie ha cruzado nunca un tramo difícil de mar en una moto acuática, y no por falta de potencia.</p>
+</section>
+
+<!-- ═══════ VIII ═══════ -->
+<section id="donde">
+  <h2><span class="num">VIII</span>Saber dónde estamos</h2>
+
+  <p>Mientras escribía este ensayo ocurrieron dos cosas que conviene poner por delante, porque cambian la escala de todo lo anterior.</p>
+
+  <p>La primera es que la frontera cedió. En las últimas semanas cayeron problemas abiertos que llevaban décadas en pie: un contraejemplo a la conjetura jacobiana, cotas mejoradas para la constante de Grothendieck, una demostración del último teorema de Fermat verificada en Lean, varias separaciones en complejidad cuántica. El quince de septiembre, Scott Aaronson resumió cómo se siente eso desde dentro de su disciplina. En las áreas que mejor conoce, escribió, hay ahora un diluvio, con problemas abiertos mayores y menores cayendo día con día.</p>
+
+  <p>El caso que mejor ilustra el asunto es el problema del milenio de Navier-Stokes, que un modelo de OpenAI parece haber resuelto. Aaronson anota el detalle que a mí me detuvo en seco: la empresa quemó alrededor de quince millones de dólares de cómputo para producir una solución de ciento sesenta y seis páginas que, escribe, probablemente ningún ser humano ha leído ni entendido todavía.</p>
+
+  <aside class="lim"><b>Una precisión</b>Hay disputa de autoría sobre ese resultado, y el trabajo se apoya en un enfoque abierto por los matemáticos Diego Córdoba y Luis Martínez-Zoroa. Aaronson enlaza las dos versiones del episodio.</aside>
+
+  <p>Ciento sesenta y seis páginas que nadie ha leído. Es el caso límite del argumento de este ensayo. Ya no se trata de que el catálogo de artefactos se erosione despacio: la pregunta por el artefacto deja de poder formularse, porque no hubo nadie que mirara el instrumento.</p>
+
+  <p>Aaronson nombra además la consecuencia para el oficio, y resulta ser la ironía de Bainbridge cuarenta años después y a otra escala. Si la producción de demostraciones se automatiza, lo que le queda al matemático es verificar y explicar argumentos gigantescos que le dejan en las manos. Verificar es la tarea residual, la más difícil, y es justamente la que se atrofia cuando se deja de producir a mano. Aaronson espera que lo mismo llegue en poco tiempo a la física teórica, y después a esencialmente todo el trabajo intelectual.</p>
+
+  <p>En septiembre de 2026, Terence Tao publicó una observación que da un giro más a todo esto. Contaba que en un proyecto de álgebra universal hubo implicaciones que atoraron al equipo durante semanas, y que ese atasco los obligó a inventar técnicas nuevas para construir contraejemplos infinitos. Después, un demostrador automático encontró que la misma implicación tenía un contraejemplo finito y pequeño. Si ese contraejemplo se hubiera encontrado primero, el método interesante quizá no habría existido nunca.</p>
+
+  <p>Y un problema resuelto no se vuelve a abrir. De ahí su tesis: por primera vez en la historia de la matemática, los problemas abiertos se están extrayendo como un recurso no renovable, y resolverlos por métodos puramente automáticos, sin énfasis en el entendimiento, tira las semillas de las preguntas más productivas que vendrían después. Es el argumento más duro que conozco sobre este asunto, porque es irreversible, porque es colectivo y no se arregla con virtud individual, y porque el daño es invisible por construcción: nunca sabremos qué método no se inventó.</p>
+
+  <p>John Carlos Baez le respondió en una frase, y la respuesta es la que sostiene el final de este ensayo. Quizá sí sea renovable, dijo, si uno está dispuesto a resolver un problema ya resuelto sin mirar la solución existente. Porque lo interesante nunca fue si una cosa implica la otra, sino cómo.</p>
+
+  <p>Eso vale para cualquiera que esté aprendiendo cualquier cosa. Todos los problemas de una tarea escolar estaban resueltos antes de que se asignaran. Siempre lo estuvieron: la respuesta existía en el libro, en la cabeza del profesor, en el cuaderno del que va un año adelante. Lo único que cambió es que ahora está a cuatro segundos de distancia, y por eso hace falta decir en voz alta algo que antes se daba por sentado.</p>
+
+  <blockquote><p>Un problema resuelto sigue abierto para quien no lo ha resuelto.</p></blockquote>
+
+  <p>Y sirve también para el uso cotidiano de estas herramientas, que no tiene nada de misterioso. Lo que he visto funcionar, en mi trabajo y en el de mis estudiantes, tiene siempre la misma forma: el modelo entra después del esfuerzo, no antes. Sirve para atacar un borrador que ya existe, para examinar a quien lo escribió, para pedir doce variantes del mismo ejercicio en lugar de su solución, para recibir el mejor contraargumento disponible. No sirve para producir lo primero, porque lo primero es justamente lo que estaba construyendo el catálogo. Hay un indicador razonable y no requiere teoría: una sesión de la que se sale más cansado enseñó algo; una de la que se sale descansado y con el entregable listo, no.</p>
+
+  <p>La segunda cosa ocurrió cuatro días antes que el texto de Aaronson, y me ahorra el trabajo de argumentar. El once de septiembre de 2026, veinticuatro medallistas Fields publicaron una carta abierta titulada <em>A Severe Misalignment of AI in Mathematics</em>. La firman, entre otros, Terence Tao, Peter Scholze, Maryna Viazovska, June Huh, James Maynard, Hugo Duminil-Copin y Artur Avila. Dice esto:</p>
+
+  <blockquote>
+    <p>Resolver problemas es sólo una herramienta y un sustituto del objetivo primario, que es la comprensión conceptual y la intuición. Olvidarlo en el mundo de la inteligencia artificial puede volver la herramienta contra ese objetivo primario.</p>
+    <cite>A Severe Misalignment of AI in Mathematics, septiembre de 2026</cite>
+  </blockquote>
+
+  <p>No conozco una formulación mejor del asunto, ni con mejores firmas. Y la carta añade algo que impide leerla como una lamentación: que si estos cambios acaban beneficiando al campo o teniendo un efecto destructivo lo determinarán, en gran medida, las decisiones de los seres humanos que controlan la tecnología. Es, dicho desde la cima de la disciplina, la misma conclusión a la que llegó con mil estudiantes de bachillerato y un diseño experimental modesto el estudio turco.</p>
+
+  <p>Puestas todas las piezas juntas, la conclusión me parece menos una advertencia que una descripción.</p>
+
+  <p>Un instrumento nuevo no se juzga por lo que produce. Se juzga por lo que haría falta saber para desconfiar de lo que produce. Esa desconfianza no es una actitud ni una virtud moral: es un catálogo de artefactos, y un catálogo se construye a mano, despacio, cometiendo el error y descubriéndolo después. La automatización desplaza primero, y con toda razón, el trabajo aburrido. Pero el trabajo aburrido era donde el catálogo se depositaba. De modo que la herramienta que nos hace más capaces hoy es la misma que erosiona la única defensa que teníamos contra sus propios errores, y lo hace sin que nadie se dé cuenta, porque el error se ve exactamente igual que el acierto.</p>
+
+  <p>La salida no es prohibir ni abstenerse. La evidencia es clara en que el diseño de la interacción decide el resultado, y en que un mismo sistema puede arruinar el aprendizaje o duplicarlo. La salida es reconocer que la pregunta sólo la puede hacer quien pagó por poder hacerla, y que se paga con horas. Con horas que no producen nada visible, que no aparecen en ningún entregable, y que son, en el sentido más literal, lo único que un centro de investigación no puede comprar hecho.</p>
+
+  <p>El <em>Royal Majesty</em>, por cierto, llegó. Llegó a diecisiete millas de donde creía estar, con toda la información necesaria encendida a bordo y con un vigía que lo había dicho en voz alta.</p>
+
+  <blockquote><p>Nunca se trató de llegar. Se trataba de saber dónde estábamos.</p></blockquote>
+</section>
+
+<!-- ═══════ FUENTES ═══════ -->
+<section id="fuentes">
+  <h2><span class="num">§</span>Fuentes</h2>
+
+  <h3 class="reftit">El accidente y los instrumentos</h3>
+  <div class="ref"><b>NTSB (1997) · Grounding of the Royal Majesty</b><span>Informe NTSB/MAR-97/01. <a href="https://www.ntsb.gov/investigations/AccidentReports/Reports/MAR9701.pdf">PDF</a></span></div>
+  <div class="ref"><b>James y Robson (2014) · Mitigating systematic error in topographic models</b><span>Earth Surface Processes and Landforms 39(10):1413-1420. El domo espurio. <a href="https://doi.org/10.1002/esp.3609">doi:10.1002/esp.3609</a></span></div>
+  <div class="ref"><b>NSIDC (2009) · Satellite sensor errors cause data outage</b><span>Nota del centro nacional de datos de nieve y hielo. No localicé una URL viva; conviene verificarla antes de citarla.</span></div>
+  <div class="ref"><b>Bainbridge (1983) · Ironies of Automation</b><span>Automatica 19(6):775-779. <a href="https://doi.org/10.1016/0005-1098(83)90046-8">doi:10.1016/0005-1098(83)90046-8</a></span></div>
+
+  <h3 class="reftit">Lo que se ha medido</h3>
+  <div class="ref"><b><a href="https://www.pnas.org/doi/10.1073/pnas.2422633122">Bastani et al. (2025) · Generative AI without guardrails can harm learning</a></b><span>PNAS 122(26). Turquía, cerca de mil estudiantes. El diseño de la interacción como variable causal.</span></div>
+  <div class="ref"><b><a href="https://pubmed.ncbi.nlm.nih.gov/40816301/">Budzyń, Romańczyk et al. (2025) · Endoscopist deskilling after exposure to AI</a></b><span>Lancet Gastroenterol Hepatol 10(10):896-903. De 28.4 % a 22.4 %. Observacional.</span></div>
+  <div class="ref"><b>Dratsch et al. (2023) · Automation Bias in Mammography</b><span>Radiology 307(4):e222176. El sistema era simulado. Sin brazo de control. <a href="https://doi.org/10.1148/radiol.222176">doi:10.1148/radiol.222176</a></span></div>
+  <div class="ref"><b>DeVries, Viégas, Wattenberg y Meade (2018)</b><span>Nature 560(7720):632-634. <a href="https://doi.org/10.1038/s41586-018-0438-y">doi:10.1038/s41586-018-0438-y</a></span></div>
+  <div class="ref"><b>Mignan y Broccardo (2019) · One neuron versus deep learning</b><span>Nature 574(7776):E1-E3. La refutación de los dos parámetros. <a href="https://doi.org/10.1038/s41586-019-1582-8">doi:10.1038/s41586-019-1582-8</a></span></div>
+  <div class="ref"><b><a href="https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/">Becker, Rush, Barnes y Rein (2025) · METR</a></b><span>19 % más lentos; estimaron 20 % más rápidos.</span></div>
+  <div class="ref"><b><a href="https://www.nature.com/articles/s41598-025-97652-6">Kestin et al. (2025) · AI tutoring outperforms in-class active learning</a></b><span>Scientific Reports 15. Tutor diseñado por expertos, con pistas graduadas.</span></div>
+  <div class="ref"><b><a href="https://arxiv.org/abs/2410.03017">Wang et al. (2024) · Tutor CoPilot</a></b><span>El asistente le habla al tutor humano, no al alumno.</span></div>
+
+  <h3 class="reftit">Aprendizaje, curiosidad e ilusión</h3>
+  <div class="ref"><b>Bjork y Bjork (2011) · Dificultades deseables</b><span>Capítulo en <i>Psychology and the Real World</i>, Worth Publishers. Aprendizaje y desempeño no son lo mismo.</span></div>
+  <div class="ref"><b><a href="https://journals.sagepub.com/doi/10.3102/00346543211019105">Sinha y Kapur (2021) · Fracaso productivo</a></b><span>Review of Educational Research 91(5):761-798.</span></div>
+  <div class="ref"><b><a href="https://www.cell.com/neuron/fulltext/S0896-6273(14)00804-6">Gruber, Gelman y Ranganath (2014) · Curiosidad y memoria</a></b><span>Neuron 84(2):486-496.</span></div>
+  <div class="ref"><b><a href="https://bera-journals.onlinelibrary.wiley.com/doi/10.1111/bjet.13544">Fan et al. (2025) · Beware of metacognitive laziness</a></b><span>BJET 56(2):489-530.</span></div>
+  <div class="ref"><b><a href="https://arxiv.org/abs/2506.08872">Kosmyna et al. (2025) · Your Brain on ChatGPT</a></b><span>MIT Media Lab. n = 54, sin arbitraje al difundirse. Se cita con reservas.</span></div>
+  <div class="ref"><b><a href="https://www.microsoft.com/en-us/research/wp-content/uploads/2025/01/lee_2025_ai_critical_thinking_survey.pdf">Lee et al. (2025) · Generative AI y pensamiento crítico</a></b><span>CHI 2025. Autorreportado.</span></div>
+
+  <h3 class="reftit">Evaluación, colaboración y varianza</h3>
+  <div class="ref"><b><a href="https://arxiv.org/abs/2304.02819">Liang et al. (2023) · GPT detectors are biased against non-native English writers</a></b><span>Patterns 4(7):100779. 61.3 % de falsos positivos.</span></div>
+  <div class="ref"><b>Collins (1974) · The TEA Set: Tacit Knowledge and Scientific Networks</b><span>Science Studies 4(2):165-185. <a href="https://doi.org/10.1177/030631277400400203">doi:10.1177/030631277400400203</a></span></div>
+  <div class="ref"><b><a href="https://arxiv.org/abs/2310.13548">Sharma et al. (2023) · Sycophancy in language models</a></b><span>Ante una objeción tibia, los modelos ceden. Mitigado en modelos posteriores.</span></div>
+  <div class="ref"><b><a href="https://www.science.org/doi/10.1126/sciadv.adn5290">Doshi y Hauser (2024) · Creatividad individual y diversidad colectiva</a></b><span>Science Advances 10(28):eadn5290.</span></div>
+  <div class="ref"><b><a href="https://www.science.org/doi/10.1126/science.1136099">Wuchty, Jones y Uzzi (2007) · El dominio creciente de los equipos</a></b><span>Science 316(5827):1036-1039.</span></div>
+  <div class="ref"><b><a href="https://www.unesco.org/en/articles/guidance-generative-ai-education-and-research">UNESCO (2023) · Guidance for generative AI in education and research</a></b></div>
+
+  <h3 class="reftit">La discusión de septiembre de 2026</h3>
+  <div class="ref"><b><a href="https://mathandai.org/">Veinticuatro medallistas Fields (2026) · A Severe Misalignment of AI in Mathematics</a></b><span>11 de septiembre de 2026. Tao, Scholze, Viazovska, Huh, Maynard, Duminil-Copin, Avila y otros.</span></div>
+  <div class="ref"><b><a href="https://scottaaronson.blog/?p=10062">Scott Aaronson (2026) · The Age of Wonders and Terrors</a></b><span>15 de septiembre de 2026. El diluvio, Navier-Stokes y los matemáticos como verificadores.</span></div>
+  <div class="ref"><b><a href="https://mathstodon.xyz/@tao/117230983266837293">Terence Tao · Los problemas abiertos como recurso no renovable</a></b></div>
+  <div class="ref"><b><a href="https://mathstodon.xyz/@johncarlosbaez/117231225728682610">John Carlos Baez · Quizá sí es renovable</a></b></div>
+  <div class="ref"><b><a href="https://mbmccoy.dev/posts/mathematical-conservatory/">Mike McCoy · ¿Está la matemática a punto de entrar al conservatorio?</a></b></div>
+  <div class="ref"><b><a href="https://systemsapproach.org/2026/09/07/a-modest-proposal/">Larry Peterson · A Modest Proposal</a></b></div>
+
+  <h3 class="reftit">El caso de la UNAM</h3>
+  <div class="ref"><b><a href="https://www.infobae.com/mexico/2026/07/27/de-chatgpt-a-camaras-360-grados-las-trampas-con-las-que-aspirantes-burlaron-la-ia-del-examen-de-admision-de-la-unam/">Infobae · Los métodos del fraude</a></b></div>
+  <div class="ref"><b><a href="https://politica.expansion.mx/mexico/2026/08/26/examen-ingreso-unam-detenidos">Expansión · Dos detenidos por suplantar aspirantes</a></b></div>
+  <div class="ref"><b><a href="https://www.jornada.com.mx/noticia/2026/08/28/politica/unam-da-a-conocer-los-resultados-del-examen-de-control-presencial">La Jornada · Resultados del examen de control</a></b></div>
+</section>
+
+<footer>
+  <p>Varios de los ejemplos por disciplina de este ensayo, el domo del dron, el sensor del Ártico, el láser de Collins, las mamografías de Colonia y la red que conocía el examen, provienen de un levantamiento de catorce áreas de investigación auditado después por un verificador adversarial, que descartó cuarenta y nueve de doscientas doce afirmaciones. Lo que sobrevivió es lo que está aquí, con su límite al lado.</p>
+  <p style="margin-top:.9rem">También disponible en <a href="ensayo.pdf">PDF</a>.</p>
+</footer>
+
+</div>
+
+</body>
+</html>
