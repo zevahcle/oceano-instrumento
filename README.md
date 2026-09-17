@@ -9,6 +9,14 @@
 | **El ensayo** | <https://zevahcle.github.io/oceano-instrumento/> |
 | **El ensayo en PDF** | <https://zevahcle.github.io/oceano-instrumento/ensayo.pdf> |
 
+### Para el orador
+
+| | |
+|---|---|
+| **Notas de atril** | <https://zevahcle.github.io/oceano-instrumento/notas.pdf> |
+
+Formato de teléfono, seis páginas. La versión que se proyecta no lleva notas.
+
 Por qué la defensa contra un error plausible no es una actitud sino un catálogo, por qué ese
 catálogo se construye a mano, y por qué es lo primero que la automatización hace desaparecer.
 
